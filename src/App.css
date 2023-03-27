@@ -1,6 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/harry-potter');
 .App {
-  max-width: 1000px;
+  max-width: auto;
   margin: auto;
 }
 
