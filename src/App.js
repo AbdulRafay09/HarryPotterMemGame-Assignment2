@@ -25,7 +25,7 @@ function App() {
     setTurns(0)
   }
   const choiceHandle = (imageHP) => {
-    console.log(imageHP)
+    firstChoice ? setSecondChoice(imageHP) : setFirstChoice(imageHP)
   }
   return (
     <div className="App">
