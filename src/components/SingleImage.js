@@ -1,7 +1,9 @@
 import './SingleImage.css'
-export default function SingleImage({ imageHP, choiceHandle, flipImage }){
+export default function SingleImage({ imageHP, choiceHandle, flipImage, disabledImg }){
     const clickHandle = () => {
-        choiceHandle(imageHP)
+        if (!disabledImg) {
+            choiceHandle(imageHP)
+        }
     }
     return(
         <div className="imag"> 
