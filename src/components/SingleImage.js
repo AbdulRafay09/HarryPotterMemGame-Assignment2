@@ -1,10 +1,10 @@
 import './SingleImage.css'
-export default function SingleImage({imageHP}){
+export default function SingleImage({ imageHP }){
     return(
-        <div className="imageHP"> 
+        <div className="imag"> 
             <div>
-                <img className ="front" src={imageHP.src} alt="image front"/>
-                <img className ="back" src="/img/front.png" alt="image back"/>
+                <img className ="front" src={imageHP.src} alt="front"/> 
+                <img className ="back" src="/img/front.png" alt="back"/>
             </div>
         </div>
     )

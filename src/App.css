@@ -1,7 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/harry-potter');
 .App {
-  max-width: 860px;
-  margin: 20px auto;
+  max-width: auto;
+  margin: auto;
 }
 
 button {
@@ -16,4 +16,10 @@ button {
 button:hover{
   background: black;
   color: white;
+}
+.image-grid{
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
 }

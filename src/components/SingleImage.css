@@ -1,9 +1,9 @@
-.imageHp{
+.imag{
     position: relative;
 }
-.imageHp img{
+.imag img{
     width: 100%;
-    display: block;
-    border: 6px solid #fff;
+    border: 3px solid black;
     border-radius: 6px;
+    display: block;
 }
