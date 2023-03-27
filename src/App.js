@@ -3,12 +3,12 @@ import './App.css';
 import SingleImage from './components/SingleImage';
 
 const hpImages = [
-  {"src": "/img/dumble.png", matched: true},
-  {"src": "/img/granger.png", matched: true},
-  {"src": "/img/harry.png", matched: true},
-  {"src": "/img/snape.png", matched: true},
-  {"src": "/img/sortinghat.png", matched: true},
-  {"src": "/img/wolde.png", matched: true}
+  {"src": "/img/dumble.png", matched: false},
+  {"src": "/img/granger.png", matched: false},
+  {"src": "/img/harry.png", matched: false},
+  {"src": "/img/snape.png", matched: false},
+  {"src": "/img/sortinghat.png", matched: false},
+  {"src": "/img/wolde.png", matched: false}
 ]
 
 function App() {
@@ -29,11 +29,11 @@ function App() {
   }
   useEffect(() => {
     if(firstChoice && secondChoice){
-      if(firstChoice.src !== secondChoice.src){
+      if(firstChoice.src === secondChoice.src){
         setImages(pastImages => {
           return pastImages.map(imageHP => {
-            if (imageHP.src !== secondChoice.src){
-              return{...imageHP, matched: false}
+            if (imageHP.src === secondChoice.src){
+              return{...imageHP, matched: true}
             }
             else{
               return imageHP
@@ -61,7 +61,8 @@ function App() {
       
       <div className="image-grid">
         {imagesHP.map(imageHP => (
-          <SingleImage key={imageHP.id} imageHP={imageHP} choiceHandle={choiceHandle}/>
+          <SingleImage key={imageHP.id} imageHP={imageHP} choiceHandle={choiceHandle}
+          flipImage={imageHP === firstChoice || imageHP === secondChoice || imageHP.matched}/>
         ))}
       </div>
     </div>
