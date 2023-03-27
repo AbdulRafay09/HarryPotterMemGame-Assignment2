@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import SingleImage from './components/SingleImage';
 
 const hpImages = [
-  {"src": "/img/dumble.png"},
-  {"src": "/img/granger.png"},
-  {"src": "/img/harry.png"},
-  {"src": "/img/snape.png"},
-  {"src": "/img/sortinghat.png"},
-  {"src": "/img/wolde.png"}
+  {"src": "/img/dumble.png", matched: true},
+  {"src": "/img/granger.png", matched: true},
+  {"src": "/img/harry.png", matched: true},
+  {"src": "/img/snape.png", matched: true},
+  {"src": "/img/sortinghat.png", matched: true},
+  {"src": "/img/wolde.png", matched: true}
 ]
 
 function App() {
@@ -26,6 +26,33 @@ function App() {
   }
   const choiceHandle = (imageHP) => {
     firstChoice ? setSecondChoice(imageHP) : setFirstChoice(imageHP)
+  }
+  useEffect(() => {
+    if(firstChoice && secondChoice){
+      if(firstChoice.src !== secondChoice.src){
+        setImages(pastImages => {
+          return pastImages.map(imageHP => {
+            if (imageHP.src !== secondChoice.src){
+              return{...imageHP, matched: false}
+            }
+            else{
+              return imageHP
+            }
+          })
+        })
+        resetOption()
+      }
+      else{
+        resetOption()
+      }
+    }
+  }, [firstChoice, secondChoice])
+
+
+  const resetOption = () => {
+    setFirstChoice(null)
+    setSecondChoice(null)
+    setTurns(pastTurns => pastTurns + 1)
   }
   return (
     <div className="App">
