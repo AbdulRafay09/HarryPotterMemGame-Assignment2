@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/HarryPotterMemGame-Assignment2/static/css/main.2abe9089.css",
+    "main.js": "/HarryPotterMemGame-Assignment2/static/js/main.3d742060.js",
+    "index.html": "/HarryPotterMemGame-Assignment2/index.html",
+    "main.2abe9089.css.map": "/HarryPotterMemGame-Assignment2/static/css/main.2abe9089.css.map",
+    "main.3d742060.js.map": "/HarryPotterMemGame-Assignment2/static/js/main.3d742060.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2abe9089.css",
+    "static/js/main.3d742060.js"
+  ]
+}
