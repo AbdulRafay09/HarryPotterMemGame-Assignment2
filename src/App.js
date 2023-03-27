@@ -3,12 +3,12 @@ import './App.css';
 import SingleImage from './components/SingleImage';
 
 const hpImages = [
-  {"src": "/img/dumble.png"},
-  {"src": "/img/granger.png"},
-  {"src": "/img/harry.png"},
-  {"src": "/img/snape.png"},
-  {"src": "/img/sortinghat.png"},
-  {"src": "/img/wolde.png"}
+  {"src": "/img/dumble.png", matched: false},
+  {"src": "/img/granger.png", matched: false},
+  {"src": "/img/harry.png", matched: false},
+  {"src": "/img/snape.png", matched: false},
+  {"src": "/img/sortinghat.png", matched: false},
+  {"src": "/img/wolde.png", matched: false}
 ]
 
 function App() {
@@ -30,15 +30,24 @@ function App() {
   useEffect(() => {
     if(firstChoice && secondChoice){
       if(firstChoice.src === secondChoice.src){
-        console.log('those card matches')
+        setImages(pastImages => {
+          return pastImages.map(imageHP => {
+            if (imageHP.src === secondChoice.src){
+              return{...imageHP, matched: true}
+            }
+            else{
+              return imageHP
+            }
+          })
+        })
         resetOption()
       }
       else{
-        console.log('no match')
         resetOption()
       }
     }
   }, [firstChoice, secondChoice])
+  console.log(imagesHP)
 
   const resetOption = () => {
     setFirstChoice(null)
