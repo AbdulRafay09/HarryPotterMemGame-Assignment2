@@ -3,12 +3,12 @@ import './App.css';
 import SingleImage from './components/SingleImage';
 
 const hpImages = [
-  {"src": "/img/dumble.png", matched: false},
-  {"src": "/img/granger.png", matched: false},
-  {"src": "/img/harry.png", matched: false},
-  {"src": "/img/snape.png", matched: false},
-  {"src": "/img/sortinghat.png", matched: false},
-  {"src": "/img/wolde.png", matched: false}
+  {"src": "./img/dumble.png", matched: false},
+  {"src": "./img/granger.png", matched: false},
+  {"src": "./img/harry.png", matched: false},
+  {"src": "./img/snape.png", matched: false},
+  {"src": "./img/sortinghat.png", matched: false},
+  {"src": "./img/wolde.png", matched: false}
 ]
 
 function App() {
