@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import SingleImage from './components/SingleImage';
 
@@ -26,6 +26,24 @@ function App() {
   }
   const choiceHandle = (imageHP) => {
     firstChoice ? setSecondChoice(imageHP) : setFirstChoice(imageHP)
+  }
+  useEffect(() => {
+    if(firstChoice && secondChoice){
+      if(firstChoice.src === secondChoice.src){
+        console.log('those card matches')
+        resetOption()
+      }
+      else{
+        console.log('no match')
+        resetOption()
+      }
+    }
+  }, [firstChoice, secondChoice])
+
+  const resetOption = () => {
+    setFirstChoice(null)
+    setSecondChoice(null)
+    setTurns(pastTurns => pastTurns + 1)
   }
   return (
     <div className="App">
