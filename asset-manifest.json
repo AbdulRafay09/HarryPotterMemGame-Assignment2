@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/HarryPotterMemGame-Assignment2/static/css/main.2abe9089.css",
-    "main.js": "/HarryPotterMemGame-Assignment2/static/js/main.94c3d08b.js",
+    "main.js": "/HarryPotterMemGame-Assignment2/static/js/main.d5e1d0c7.js",
     "index.html": "/HarryPotterMemGame-Assignment2/index.html",
     "main.2abe9089.css.map": "/HarryPotterMemGame-Assignment2/static/css/main.2abe9089.css.map",
-    "main.94c3d08b.js.map": "/HarryPotterMemGame-Assignment2/static/js/main.94c3d08b.js.map"
+    "main.d5e1d0c7.js.map": "/HarryPotterMemGame-Assignment2/static/js/main.d5e1d0c7.js.map"
   },
   "entrypoints": [
     "static/css/main.2abe9089.css",
-    "static/js/main.94c3d08b.js"
+    "static/js/main.d5e1d0c7.js"
   ]
 }
