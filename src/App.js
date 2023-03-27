@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import './App.css';
-import imagesCard from './imagesettings/imagesCard'
+import SingleImage from './components/SingleImage';
 
 const hpImages = [
   {"src": "/img/dumble.png"},
   {"src": "/img/granger.png"},
   {"src": "/img/harry.png"},
   {"src": "/img/snape.png"},
-  {"src": "/img/sortings.png"},
+  {"src": "/img/sortinghat.png"},
   {"src": "/img/wolde.png"}
 ]
 
@@ -29,7 +29,7 @@ function App() {
       
       <div className="image-grid">
         {imagesHP.map(imageHP => (
-          <imagesCard key={imageHP.id} imageHP={imageHP}/>
+          <SingleImage key={imageHP.id} imageHP={imageHP}/>
         ))}
       </div>
     </div>
