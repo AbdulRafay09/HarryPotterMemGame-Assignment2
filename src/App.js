@@ -3,12 +3,12 @@ import './App.css';
 import SingleImage from './components/SingleImage';
 
 const hpImages = [
-  {"src": "/img/dumble.png", matched: true},
-  {"src": "/img/granger.png", matched: true},
-  {"src": "/img/harry.png", matched: true},
-  {"src": "/img/snape.png", matched: true},
-  {"src": "/img/sortinghat.png", matched: true},
-  {"src": "/img/wolde.png", matched: true}
+  {"src": "/img/dumble.png", matched: false},
+  {"src": "/img/granger.png", matched: false},
+  {"src": "/img/harry.png", matched: false},
+  {"src": "/img/snape.png", matched: false},
+  {"src": "/img/sortinghat.png", matched: false},
+  {"src": "/img/wolde.png", matched: false}
 ]
 
 function App() {
@@ -16,11 +16,14 @@ function App() {
   const [turns, setTurns] = useState(0)
   const [firstChoice, setFirstChoice] = useState(null)
   const [secondChoice, setSecondChoice] = useState(null)
+  const [disabledImg, setDisabledImg] = useState(false)
 
   const shuffleImages = () => {
     const shuffledImages = [...hpImages, ...hpImages]
       .sort(() => Math.random() - 0.5)
       .map((imageHP) => ({...imageHP, id: Math.random()}))
+    setFirstChoice(null)
+    setSecondChoice(null)
     setImages(shuffledImages)
     setTurns(0)
   }
@@ -29,11 +32,12 @@ function App() {
   }
   useEffect(() => {
     if(firstChoice && secondChoice){
-      if(firstChoice.src !== secondChoice.src){
+      setDisabledImg(true)
+      if(firstChoice.src === secondChoice.src){
         setImages(pastImages => {
           return pastImages.map(imageHP => {
-            if (imageHP.src !== secondChoice.src){
-              return{...imageHP, matched: false}
+            if (imageHP.src === secondChoice.src){
+              return{...imageHP, matched: true}
             }
             else{
               return imageHP
@@ -43,7 +47,7 @@ function App() {
         resetOption()
       }
       else{
-        resetOption()
+        setTimeout(() => resetOption(), 1000)
       }
     }
   }, [firstChoice, secondChoice])
@@ -53,6 +57,7 @@ function App() {
     setFirstChoice(null)
     setSecondChoice(null)
     setTurns(pastTurns => pastTurns + 1)
+    setDisabledImg(false)
   }
   return (
     <div className="App">
@@ -61,9 +66,12 @@ function App() {
       
       <div className="image-grid">
         {imagesHP.map(imageHP => (
-          <SingleImage key={imageHP.id} imageHP={imageHP} choiceHandle={choiceHandle}/>
+          <SingleImage key={imageHP.id} imageHP={imageHP} choiceHandle={choiceHandle}
+          flipImage={imageHP === firstChoice || imageHP === secondChoice || imageHP.matched}
+          disabledImg={disabledImg}/>
         ))}
       </div>
+      <p>Number of Turns: {turns}</p>
     </div>
   );
 }

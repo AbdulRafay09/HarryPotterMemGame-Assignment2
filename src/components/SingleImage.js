@@ -1,11 +1,13 @@
 import './SingleImage.css'
-export default function SingleImage({ imageHP, choiceHandle }){
+export default function SingleImage({ imageHP, choiceHandle, flipImage, disabledImg }){
     const clickHandle = () => {
-        choiceHandle(imageHP)
+        if (!disabledImg) {
+            choiceHandle(imageHP)
+        }
     }
     return(
         <div className="imag"> 
-            <div>
+            <div className={flipImage ? "flipImage" : ""}>
                 <img className ="front" src={imageHP.src} alt="front"/> 
                 <img className ="back" src="/img/front.png" onClick={clickHandle} alt="back"/>
             </div>
