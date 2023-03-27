@@ -1,1 +1,2 @@
-## harry-potter-memory-game
+## Harry Potter Memory Game: Assignment 2
+https://abdulrafay09.github.io/HarryPotterMemGame-Assignment2/
