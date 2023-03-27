@@ -14,6 +14,9 @@ const hpImages = [
 function App() {
   const [imagesHP, setImages] = useState([])
   const [turns, setTurns] = useState(0)
+  const [firstChoice, setFirstChoice] = useState(null)
+  const [secondChoice, setSecondChoice] = useState(null)
+
   const shuffleImages = () => {
     const shuffledImages = [...hpImages, ...hpImages]
       .sort(() => Math.random() - 0.5)
@@ -21,7 +24,9 @@ function App() {
     setImages(shuffledImages)
     setTurns(0)
   }
-
+  const choiceHandle = (imageHP) => {
+    firstChoice ? setSecondChoice(imageHP) : setFirstChoice(imageHP)
+  }
   return (
     <div className="App">
       <h1>Harry Potter Memory Game</h1>
@@ -29,7 +34,7 @@ function App() {
       
       <div className="image-grid">
         {imagesHP.map(imageHP => (
-          <SingleImage key={imageHP.id} imageHP={imageHP}/>
+          <SingleImage key={imageHP.id} imageHP={imageHP} choiceHandle={choiceHandle}/>
         ))}
       </div>
     </div>
