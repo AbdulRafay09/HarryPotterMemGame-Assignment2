@@ -47,7 +47,7 @@ function App() {
       }
     }
   }, [firstChoice, secondChoice])
-  console.log(imagesHP)
+
 
   const resetOption = () => {
     setFirstChoice(null)
