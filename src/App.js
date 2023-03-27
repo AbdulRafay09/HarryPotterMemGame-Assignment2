@@ -22,6 +22,8 @@ function App() {
     const shuffledImages = [...hpImages, ...hpImages]
       .sort(() => Math.random() - 0.5)
       .map((imageHP) => ({...imageHP, id: Math.random()}))
+    setFirstChoice(null)
+    setSecondChoice(null)
     setImages(shuffledImages)
     setTurns(0)
   }
@@ -69,6 +71,7 @@ function App() {
           disabledImg={disabledImg}/>
         ))}
       </div>
+      <p>Number of Turns: {turns}</p>
     </div>
   );
 }
